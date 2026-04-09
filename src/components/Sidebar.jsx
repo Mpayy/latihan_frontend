@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import { MdHome, MdSearch, MdAddBox, MdPerson } from "react-icons/md";
 
 export default function Sidebar() {
