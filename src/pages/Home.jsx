@@ -364,7 +364,7 @@ export default function Home() {
         <Form onSubmit={handleCreatePost}>
           <div className="d-flex align-items-start gap-3">
             <img
-              src={defaultAvatar(currentUser.name || "me")}
+              src={currentUser.profile_url || defaultAvatar(currentUser.name || "me")}
               alt="my-avatar"
               className="post-avatar mt-1"
             />
@@ -472,7 +472,7 @@ export default function Home() {
                 <div className="post-user d-flex align-items-center gap-2">
                   <img
                     src={
-                      post.user?.profile_photo ||
+                      post.user?.profile_url ||
                       defaultAvatar(post.user?.username || post.id)
                     }
                     alt={post.user?.name}

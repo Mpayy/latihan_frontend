@@ -13,10 +13,10 @@ export default function MainLayout() {
         <div className="right-panel">
           <div className="glass-card">
             <div className="glass-card-header">
-              <h6 className="m-0 fw-bold">Saran untuk Anda</h6>
+              <h6 className="m-0 fw-bold"></h6>
             </div>
             <div className="glass-card-body pt-3">
-              <p className="text-muted small">Fitur saran teman akan muncul di sini</p>
+              <p className="text-muted small"></p>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Search from "./pages/Search";
 
 function App() {
   // Mock auth state - nanti bisa diganti dengan Context/Redux
@@ -21,10 +22,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/user/:username" element={<Profile />} />
-        <Route
-          path="/search"
-          element={<div className="p-4 fw-bold">Halaman Pencarian (WIP)</div>}
-        />
+        <Route path="/search" element={<Search />} />
         <Route
           path="/create"
           element={<div className="p-4 fw-bold">Halaman Buat Post (WIP)</div>}
