@@ -125,7 +125,7 @@ export default function Register() {
         <div className="text-center small">
           Sudah punya akun?{" "}
           <Link
-            to="/login"
+            to="/"
             className="text-primary fw-bold text-decoration-none"
           >
             Masuk di sini

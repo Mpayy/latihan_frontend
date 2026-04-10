@@ -37,48 +37,46 @@ export default function Sidebar() {
       <div className="sidebar-logo">
         <span className="text-primary">Sys</span>Media
       </div>
-      <NavLink
-        to="/home"
-        className={({ isActive }) =>
-          `nav-link-item ${isActive ? "active" : ""}`
-        }
-      >
-        <MdHome className="icon" />
-        <span className="sidebar-text">Beranda</span>
-      </NavLink>
-      {/* Nanti ini bisa modal atau halaman search */}
-      <NavLink
-        to="/search"
-        className={({ isActive }) =>
-          `nav-link-item ${isActive ? "active" : ""}`
-        }
-      >
-        <MdSearch className="icon" />
-        <span className="sidebar-text">Cari</span>
-      </NavLink>
-      <NavLink
-        to="/create"
-        className={({ isActive }) =>
-          `nav-link-item ${isActive ? "active" : ""}`
-        }
-      >
-        <MdAddBox className="icon" />
-        <span className="sidebar-text">Buat</span>
-      </NavLink>
-      <NavLink
-        to="/profile"
-        className={({ isActive }) =>
-          `nav-link-item ${isActive ? "active" : ""}`
-        }
-      >
-        <MdPerson className="icon" />
-        <span className="sidebar-text">Profil</span>
-      </NavLink>
 
-      <div className="mt-auto pt-3 border-top w-100">
+      <div className="sidebar-links">
+        <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            `nav-link-item ${isActive ? "active" : ""}`
+          }
+        >
+          <MdHome className="icon" />
+          <span className="sidebar-text">Beranda</span>
+        </NavLink>
+
+        <NavLink
+          to="/search"
+          className={({ isActive }) =>
+            `nav-link-item ${isActive ? "active" : ""}`
+          }
+        >
+          <MdSearch className="icon" />
+          <span className="sidebar-text">Cari</span>
+        </NavLink>
+
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `nav-link-item ${isActive ? "active" : ""}`
+          }
+        >
+          <MdPerson className="icon" />
+          <span className="sidebar-text">Profil</span>
+        </NavLink>
+      </div>
+
+      {/* Spacer ini yang akan mendorong konten di bawahnya ke paling bawah */}
+      <div className="flex-grow-1"></div>
+
+      <div className="pt-3 w-100">
         <button
           onClick={handleLogout}
-          className="nav-link-item w-100 border-0 bg-transparent text-danger"
+          className="nav-link-item w-100 border-0 bg-transparent text-danger mb-0"
           style={{ cursor: "pointer" }}
         >
           <MdLogout className="icon" />

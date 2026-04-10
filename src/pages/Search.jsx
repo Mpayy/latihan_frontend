@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { 
-  MdSearch, MdFavoriteBorder, MdFavorite, MdChatBubbleOutline, 
-  MdMoreHoriz, MdEdit, MdDelete, MdSend, MdImage, MdAttachFile, MdClose 
+import {
+  MdSearch, MdFavoriteBorder, MdFavorite, MdChatBubbleOutline,
+  MdMoreHoriz, MdEdit, MdDelete, MdSend, MdImage, MdAttachFile, MdClose
 } from "react-icons/md";
 import { Spinner, Form, Button, Dropdown, Modal, Tabs, Tab } from "react-bootstrap";
 import api from "../utils/api";
@@ -230,7 +230,7 @@ export default function Search() {
                       <div key={user.id} className="col-md-6">
                         <Link to={`/user/${user.username}`} className="text-decoration-none text-dark">
                           <div className="glass-card p-3 d-flex align-items-center gap-3 hover-opacity">
-                            <img src={user.profile_photo || defaultAvatar(user.username)} className="rounded-circle" width="50" height="50" alt={user.name} />
+                            <img src={user.profile_url || defaultAvatar(user.username)} className="rounded-circle" width="50" height="50" alt={user.name} />
                             <div className="text-start">
                               <div className="fw-bold">{user.name}</div>
                               <div className="small text-muted">@{user.username}</div>
@@ -304,7 +304,7 @@ export default function Search() {
                     <div key={user.id} className="col-md-6">
                       <Link to={`/user/${user.username}`} className="text-decoration-none text-dark">
                         <div className="glass-card p-3 d-flex align-items-center gap-3 hover-opacity">
-                          <img src={user.profile_photo || defaultAvatar(user.username)} className="rounded-circle" width="50" height="50" alt={user.name} />
+                          <img src={user.profile_url || defaultAvatar(user.username)} className="rounded-circle" width="50" height="50" alt={user.name} />
                           <div className="text-start">
                             <div className="fw-bold">{user.name}</div>
                             <div className="small text-muted">@{user.username}</div>
@@ -365,7 +365,7 @@ export default function Search() {
               {commentLoading ? <div className="text-center py-5"><Spinner size="sm" variant="primary" /></div> : comments.length > 0 ? (
                  comments.map(c => (
                    <div key={c.id} className="d-flex gap-2 mb-3 align-items-start">
-                      <img src={c.user?.profile_photo || defaultAvatar(c.user?.username)} className="rounded-circle" width="32" height="32" />
+                      <img src={c.user?.profile_url || defaultAvatar(c.user?.username)} className="rounded-circle" width="32" height="32" />
                       <div className="bg-white p-2 rounded-3 shadow-sm border text-start" style={{ maxWidth: '85%' }}>
                          <div className="fw-bold small">{c.user?.name}</div>
                          <div className="small mt-1">{c.body}</div>
@@ -409,7 +409,7 @@ function PostCard({ post, currentUser, handleLike, openCommentModal, openEditMod
     <div key={post.id} className="post-card mb-3 shadow-sm border-light animate__animated animate__fadeInUp">
       <div className="post-header border-0 d-flex justify-content-between align-items-center">
         <div className="post-user d-flex align-items-center gap-2">
-          <img src={post.user?.profile_photo || defaultAvatar(post.user?.username || post.id)} className="post-avatar" alt={post.user?.name} />
+          <img src={post.user?.profile_url || defaultAvatar(post.user?.username || post.id)} className="post-avatar" alt={post.user?.name} />
           <div className="d-flex flex-column text-start">
             <span className="fw-bold">{post.user?.name || "Anonim"}</span>
             <span className="text-muted small">@{post.user?.username}</span>
