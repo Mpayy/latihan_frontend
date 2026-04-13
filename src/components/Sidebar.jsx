@@ -1,10 +1,11 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { MdHome, MdSearch, MdAddBox, MdPerson, MdLogout } from "react-icons/md";
+import { MdHome, MdSearch, MdAddBox, MdPerson, MdLogout, MdPeople } from "react-icons/md";
 import api from "../utils/api";
 import Swal from "sweetalert2";
 
 export default function Sidebar() {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   const handleLogout = () => {
     Swal.fire({
@@ -68,6 +69,19 @@ export default function Sidebar() {
           <MdPerson className="icon" />
           <span className="sidebar-text">Profil</span>
         </NavLink>
+
+        {/* Fitur Khusus Admin */}
+        {(user.is_admin === true || user.is_admin === 1) && (
+          <NavLink
+            to="/users"
+            className={({ isActive }) =>
+              `nav-link-item ${isActive ? "active" : ""}`
+            }
+          >
+            <MdPeople className="icon" />
+            <span className="sidebar-text">Data User</span>
+          </NavLink>
+        )}
       </div>
 
       {/* Spacer ini yang akan mendorong konten di bawahnya ke paling bawah */}

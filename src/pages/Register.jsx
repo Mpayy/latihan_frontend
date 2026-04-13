@@ -32,7 +32,7 @@ export default function Register() {
         timer: 1500,
         showConfirmButton: false,
       });
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       if (error.response && error.response.status === 422) {
         setErrors(error.response.data?.errors);

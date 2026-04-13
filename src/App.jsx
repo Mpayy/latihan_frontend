@@ -6,10 +6,13 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
+import Users from "./pages/Users";
 
 function App() {
-  // Mock auth state - nanti bisa diganti dengan Context/Redux
-  const isAuthenticated = true;
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const isAuthenticated = !!token;
+  const isAdmin = user.is_admin === true || user.is_admin === 1;
 
   return (
     <Routes>
@@ -23,14 +26,16 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/user/:username" element={<Profile />} />
         <Route path="/search" element={<Search />} />
+        
+        {/* Fitur Khusus Admin */}
+        {isAdmin && <Route path="/users" element={<Users />} />}
+        
         <Route
           path="/create"
           element={<div className="p-4 fw-bold">Halaman Buat Post (WIP)</div>}
         />
       </Route>
     </Routes>
-
-
   );
 }
 
